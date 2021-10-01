@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/gramlogo" />
 
     <EditText
-        android:id="@+id/et_User"
+        android:id="@+id/et_NewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -40,7 +40,7 @@
         android:visibility="visible" />
 
     <EditText
-        android:id="@+id/et_Password"
+        android:id="@+id/et_NewPassword"
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -53,24 +53,14 @@
         android:visibility="visible" />
 
     <Button
-        android:id="@+id/btn_newUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="New User" />
-
-    <Button
         android:id="@+id/btn_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="#ED1C24"
-        android:text="Login"
+        android:text="Create"
         android:visibility="visible" />
 
 

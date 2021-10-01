@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameET;
     private EditText passwordET;
     private Button login;
+    private Button newUser;
 
 
     @Override
@@ -32,9 +33,10 @@ public class LoginActivity extends AppCompatActivity {
             goMainActivity();
         }
 
-        usernameET = findViewById(R.id.userNameET);
-        passwordET = findViewById(R.id.passwordET);
-        login = findViewById(R.id.loginBtn);
+        usernameET = findViewById(R.id.et_User);
+        passwordET = findViewById(R.id.et_Password);
+        login = findViewById(R.id.btn_create);
+        newUser = findViewById(R.id.btn_newUser);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +50,26 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        newUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG,"NewUser button clicked");
+                //Toast.makeText(LoginActivity.this,"CLICKED", Toast.LENGTH_LONG).show();
+                createUserActivity();
+
+            }
+        });
+
     }
+
+    private void createUserActivity() {
+        //activity (this) is an instance of a context
+        Intent i =  new Intent(this, NewUserActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+
     private void loginUser(String username, String password){
         Log.i(TAG , "Attempting to login user " + username);
         ParseUser.logInInBackground(username, password, new LogInCallback() {
@@ -69,6 +90,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+    
+    
 
     private void goMainActivity() {
         //activity (this) is an instance of a context
