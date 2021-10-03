@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ import com.parse.ParseFile;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
 
 import java.io.File;
 import java.util.List;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_submit;
     private File photoFile;
     public String photoFileName = "photo.jpg";
+    private float x1,x2,y1,y2;
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -71,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         iv_picTaken = findViewById(R.id.ivPicTaken);
         et_description = findViewById(R.id.et_description);
         btn_takePic = findViewById(R.id.btn_takePic);
@@ -79,11 +84,11 @@ public class MainActivity extends AppCompatActivity {
         btn_takePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //launch camera after sliding to the left
+
                 launchCamera();
             }
         });
-
-
 
        // queryPosts();
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +113,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public boolean onTouchEvent(MotionEvent touchEvent){
+        switch(touchEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = touchEvent.getX();
+                y1 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = touchEvent.getX();
+                y2 = touchEvent.getY();
+                if(x1 < x2){
+                    launchCamera();
+                }
+            break;
+        }
+        return false;
+    }
+
 
     private void launchCamera() {
         // create Intent to take a picture and return control to the calling application
@@ -126,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             // Start the image capture intent to take photo
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
         }
 
     }
