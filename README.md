@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] User can logout
-- [x]User can slide to the left and open the camera instead of pressing the button 
+- [x] User can slide to the left and open the camera instead of pressing the button 
 
 ## Video Walkthrough
 
