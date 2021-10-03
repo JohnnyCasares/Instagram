@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Screenrecorder-2021-10-01-12-18-08-620_SparkVideo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='ig.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 ## Notes
