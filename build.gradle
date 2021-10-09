@@ -4,9 +4,11 @@ buildscript {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.2"
+
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -16,4 +18,8 @@ buildscript {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+
 }
+ext {
+    appCompatVersion = '1.0.0'
+    designSupportVersion = '1.0.0'}
